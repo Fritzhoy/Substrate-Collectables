@@ -1,0 +1,9 @@
+/Users/mila_/Documents/mestrado-PPGia/rust-puc/substrate/gatos/target/debug/deps/libsp_application_crypto-f7239f8bd5299e27.rmeta: /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sp-application-crypto-38.0.0/src/lib.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sp-application-crypto-38.0.0/src/ecdsa.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sp-application-crypto-38.0.0/src/ed25519.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sp-application-crypto-38.0.0/src/sr25519.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sp-application-crypto-38.0.0/src/traits.rs
+
+/Users/mila_/Documents/mestrado-PPGia/rust-puc/substrate/gatos/target/debug/deps/sp_application_crypto-f7239f8bd5299e27.d: /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sp-application-crypto-38.0.0/src/lib.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sp-application-crypto-38.0.0/src/ecdsa.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sp-application-crypto-38.0.0/src/ed25519.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sp-application-crypto-38.0.0/src/sr25519.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sp-application-crypto-38.0.0/src/traits.rs
+
+/Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sp-application-crypto-38.0.0/src/lib.rs:
+/Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sp-application-crypto-38.0.0/src/ecdsa.rs:
+/Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sp-application-crypto-38.0.0/src/ed25519.rs:
+/Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sp-application-crypto-38.0.0/src/sr25519.rs:
+/Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sp-application-crypto-38.0.0/src/traits.rs:

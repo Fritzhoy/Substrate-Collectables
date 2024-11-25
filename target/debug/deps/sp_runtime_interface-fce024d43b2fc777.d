@@ -1,0 +1,9 @@
+/Users/mila_/Documents/mestrado-PPGia/rust-puc/substrate/gatos/target/debug/deps/libsp_runtime_interface-fce024d43b2fc777.rmeta: /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sp-runtime-interface-28.0.0/src/lib.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sp-runtime-interface-28.0.0/src/host.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sp-runtime-interface-28.0.0/src/impls.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sp-runtime-interface-28.0.0/src/pass_by.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sp-runtime-interface-28.0.0/src/util.rs
+
+/Users/mila_/Documents/mestrado-PPGia/rust-puc/substrate/gatos/target/debug/deps/sp_runtime_interface-fce024d43b2fc777.d: /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sp-runtime-interface-28.0.0/src/lib.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sp-runtime-interface-28.0.0/src/host.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sp-runtime-interface-28.0.0/src/impls.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sp-runtime-interface-28.0.0/src/pass_by.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sp-runtime-interface-28.0.0/src/util.rs
+
+/Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sp-runtime-interface-28.0.0/src/lib.rs:
+/Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sp-runtime-interface-28.0.0/src/host.rs:
+/Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sp-runtime-interface-28.0.0/src/impls.rs:
+/Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sp-runtime-interface-28.0.0/src/pass_by.rs:
+/Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sp-runtime-interface-28.0.0/src/util.rs:

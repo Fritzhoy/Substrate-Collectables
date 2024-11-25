@@ -1,0 +1,9 @@
+/Users/mila_/Documents/mestrado-PPGia/rust-puc/substrate/gatos/target/debug/deps/libderive_more_impl-441e34a5f8b6d6cc.dylib: /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/derive_more-impl-1.0.0/src/lib.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/derive_more-impl-1.0.0/src/utils.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/derive_more-impl-1.0.0/src/from.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/derive_more-impl-1.0.0/src/../README.md /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/derive_more-impl-1.0.0/src/../doc/from.md
+
+/Users/mila_/Documents/mestrado-PPGia/rust-puc/substrate/gatos/target/debug/deps/derive_more_impl-441e34a5f8b6d6cc.d: /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/derive_more-impl-1.0.0/src/lib.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/derive_more-impl-1.0.0/src/utils.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/derive_more-impl-1.0.0/src/from.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/derive_more-impl-1.0.0/src/../README.md /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/derive_more-impl-1.0.0/src/../doc/from.md
+
+/Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/derive_more-impl-1.0.0/src/lib.rs:
+/Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/derive_more-impl-1.0.0/src/utils.rs:
+/Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/derive_more-impl-1.0.0/src/from.rs:
+/Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/derive_more-impl-1.0.0/src/../README.md:
+/Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/derive_more-impl-1.0.0/src/../doc/from.md:

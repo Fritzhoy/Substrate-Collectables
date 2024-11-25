@@ -1,0 +1,11 @@
+/Users/mila_/Documents/mestrado-PPGia/rust-puc/substrate/gatos/target/debug/deps/libinclude_dir-9f494a6fbc801dc9.rmeta: /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/include_dir-0.7.4/src/lib.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/include_dir-0.7.4/src/dir.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/include_dir-0.7.4/src/dir_entry.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/include_dir-0.7.4/src/file.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/include_dir-0.7.4/src/../README.md
+
+/Users/mila_/Documents/mestrado-PPGia/rust-puc/substrate/gatos/target/debug/deps/libinclude_dir-9f494a6fbc801dc9.rlib: /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/include_dir-0.7.4/src/lib.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/include_dir-0.7.4/src/dir.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/include_dir-0.7.4/src/dir_entry.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/include_dir-0.7.4/src/file.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/include_dir-0.7.4/src/../README.md
+
+/Users/mila_/Documents/mestrado-PPGia/rust-puc/substrate/gatos/target/debug/deps/include_dir-9f494a6fbc801dc9.d: /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/include_dir-0.7.4/src/lib.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/include_dir-0.7.4/src/dir.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/include_dir-0.7.4/src/dir_entry.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/include_dir-0.7.4/src/file.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/include_dir-0.7.4/src/../README.md
+
+/Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/include_dir-0.7.4/src/lib.rs:
+/Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/include_dir-0.7.4/src/dir.rs:
+/Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/include_dir-0.7.4/src/dir_entry.rs:
+/Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/include_dir-0.7.4/src/file.rs:
+/Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/include_dir-0.7.4/src/../README.md:

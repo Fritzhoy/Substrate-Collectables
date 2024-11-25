@@ -1,0 +1,12 @@
+/Users/mila_/Documents/mestrado-PPGia/rust-puc/substrate/gatos/target/debug/deps/libtt_call-839e434ce46b2018.rmeta: /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tt-call-1.0.9/src/lib.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tt-call-1.0.9/src/predicate.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tt-call-1.0.9/src/replace.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tt-call-1.0.9/src/rust/mod.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tt-call-1.0.9/src/rust/expr.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tt-call-1.0.9/src/rust/path.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tt-call-1.0.9/src/rust/ty.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tt-call-1.0.9/src/unexpected.rs
+
+/Users/mila_/Documents/mestrado-PPGia/rust-puc/substrate/gatos/target/debug/deps/tt_call-839e434ce46b2018.d: /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tt-call-1.0.9/src/lib.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tt-call-1.0.9/src/predicate.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tt-call-1.0.9/src/replace.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tt-call-1.0.9/src/rust/mod.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tt-call-1.0.9/src/rust/expr.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tt-call-1.0.9/src/rust/path.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tt-call-1.0.9/src/rust/ty.rs /Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tt-call-1.0.9/src/unexpected.rs
+
+/Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tt-call-1.0.9/src/lib.rs:
+/Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tt-call-1.0.9/src/predicate.rs:
+/Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tt-call-1.0.9/src/replace.rs:
+/Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tt-call-1.0.9/src/rust/mod.rs:
+/Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tt-call-1.0.9/src/rust/expr.rs:
+/Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tt-call-1.0.9/src/rust/path.rs:
+/Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tt-call-1.0.9/src/rust/ty.rs:
+/Users/mila_/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tt-call-1.0.9/src/unexpected.rs:
