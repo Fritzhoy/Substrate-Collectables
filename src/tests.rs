@@ -236,3 +236,19 @@ fn cannot_own_too_many_gatos() {
 		);
 	});
 }
+
+#[test]
+fn transfer_emits_event() {
+	new_test_ext().execute_with(|| {
+		// We need to set block number to 1 to view events.
+		System::set_block_number(1);
+		// Create a kitty to transfer
+		assert_ok!(PalletGatos::create_gatos(RuntimeOrigin::signed(ALICE)));
+		// Get the kitty id.
+		let gato_id = Gatos::<TestRuntime>::iter_keys().collect::<Vec<_>>()[0];
+		assert_ok!(PalletGatos::transfer(RuntimeOrigin::signed(ALICE), BOB, gato_id));
+		System::assert_last_event(
+			Event::<TestRuntime>::Transferred { from: ALICE, to: BOB, gato_id }.into(),
+		);
+	});
+}
