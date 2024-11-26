@@ -54,6 +54,9 @@ pub mod pallet {
 		TooManyGatos,
 		DuplicateGato,
 		TooManyOwned,
+		NoGato,
+		TransferToSelf,
+		NotOwner,
 	}
 
 	#[pallet::call]

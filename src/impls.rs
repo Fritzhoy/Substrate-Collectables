@@ -37,6 +37,23 @@ impl<T: Config> Pallet<T> {
 		Ok(())
 	}
 	pub fn do_transfer(from: T::AccountId, to: T::AccountId, gato_id: [u8; 32]) -> DispatchResult {
+		ensure!(from != to, Error::<T>::TransferToSelf);
+		let mut gato = Gatos::<T>::get(gato_id).ok_or(Error::<T>::NoGato)?;
+		ensure!(gato.owner == from, Error::<T>::NotOwner);
+		gato.owner = to.clone();
+
+		let mut to_owned = GatosOwned::<T>::get(&to);
+		to_owned.try_push(gato_id).map_err(|_| Error::<T>::TooManyOwned)?;
+		let mut from_owned = GatosOwned::<T>::get(&from);
+		if let Some(index) = from_owned.iter().position(|&id| id == gato_id) {
+			from_owned.swap_remove(index);
+		} else {
+			return Err(Error::<T>::NoGato.into());
+		}
+		Gatos::<T>::insert(gato_id, gato);
+		GatosOwned::<T>::insert(&to, to_owned);
+		GatosOwned::<T>::insert(&from, from_owned);
+
 		Self::deposit_event(Event::<T>::Transferred { from, to, gato_id });
 		Ok(())
 	}
