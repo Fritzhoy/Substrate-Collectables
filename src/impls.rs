@@ -1,6 +1,7 @@
 use super::*;
 use frame::prelude::*;
 use frame::primitives::BlakeTwo256;
+use frame::traits::tokens::Preservation;
 use frame::traits::Hash;
 
 impl<T: Config> Pallet<T> {
@@ -15,7 +16,7 @@ impl<T: Config> Pallet<T> {
 	}
 
 	pub fn mint(owner: T::AccountId, dna: [u8; 32]) -> DispatchResult {
-		let gato = Gato { dna, owner: owner.clone() };
+		let gato = Gato { dna, owner: owner.clone(), price: None };
 		//Check if the dna of a gato already exist
 		ensure!(!Gatos::<T>::contains_key(dna), Error::<T>::DuplicateGato);
 
@@ -41,6 +42,7 @@ impl<T: Config> Pallet<T> {
 		let mut gato = Gatos::<T>::get(gato_id).ok_or(Error::<T>::NoGato)?;
 		ensure!(gato.owner == from, Error::<T>::NotOwner);
 		gato.owner = to.clone();
+		gato.price = None;
 
 		let mut to_owned = GatosOwned::<T>::get(&to);
 		to_owned.try_push(gato_id).map_err(|_| Error::<T>::TooManyOwned)?;
@@ -55,6 +57,35 @@ impl<T: Config> Pallet<T> {
 		GatosOwned::<T>::insert(&from, from_owned);
 
 		Self::deposit_event(Event::<T>::Transferred { from, to, gato_id });
+		Ok(())
+	}
+	pub fn do_set_price(
+		caller: T::AccountId,
+		gato_id: [u8; 32],
+		new_price: Option<BalanceOf<T>>,
+	) -> DispatchResult {
+		let mut gato = Gatos::<T>::get(gato_id).ok_or(Error::<T>::NoGato)?;
+		ensure!(gato.owner == caller, Error::<T>::NotOwner);
+		gato.price = new_price;
+		Gatos::<T>::insert(gato_id, gato);
+
+		Self::deposit_event(Event::<T>::PriceSet { owner: caller, gato_id, new_price });
+		Ok(())
+	}
+
+	pub fn do_buy_gato(
+		buyer: T::AccountId,
+		gato_id: [u8; 32],
+		price: BalanceOf<T>,
+	) -> DispatchResult {
+		let mut gato = Gatos::<T>::get(gato_id).ok_or(Error::<T>::NoGato)?;
+		let real_price = gato.price.ok_or(Error::<T>::GatoNotForSale)?;
+		ensure!(price >= real_price, Error::<T>::MaxPriceTooLow);
+
+		T::NativeBalance::transfer(&buyer, &gato.owner, real_price, Preservation::Preserve)?;
+		Self::do_transfer(gato.owner, buyer.clone(), gato_id)?;
+
+		Self::deposit_event(Event::<T>::Sold { buyer, gato_id, price });
 		Ok(())
 	}
 }

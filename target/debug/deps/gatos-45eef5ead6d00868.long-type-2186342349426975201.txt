@@ -1,0 +1,1 @@
+std::option::Option<<<T as pallet::Config>::NativeBalance as polkadot_sdk_frame::traits::fungible::Inspect<<T as polkadot_sdk_frame::prelude::frame_system::Config>::AccountId>>::Balance>

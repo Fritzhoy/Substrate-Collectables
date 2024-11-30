@@ -1,4 +1,4 @@
-// Tests for the Kitties Pallet.
+// Tests for the Gatos Pallet.
 //
 // Normally this file would be split into two parts: `mock.rs` and `tests.rs`.
 // The `mock.rs` file would contain all the setup code for our `TestRuntime`.
@@ -28,12 +28,12 @@ type Block = frame_system::mocking::MockBlock<TestRuntime>;
 const ALICE: u64 = 1;
 const BOB: u64 = 2;
 #[allow(unused)]
-const DEFAULT_KITTY: Gato<TestRuntime> = Gato { dna: [0u8; 32], owner: 0 };
+const DEFAULT_KITTY: Gato<TestRuntime> = Gato { dna: [0u8; 32], owner: 0, price: None };
 
 // Our blockchain tests only need 3 Pallets:
 // 1. System: Which is included with every FRAME runtime.
 // 2. PalletBalances: Which is manages your blockchain's native currency. (i.e. DOT on Polkadot)
-// 3. PalletKitties: The pallet you are building in this tutorial!
+// 3. PalletGatos: The pallet you are building in this tutorial!
 construct_runtime! {
 	pub struct TestRuntime {
 		System: frame_system,
@@ -62,6 +62,7 @@ impl pallet_balances::Config for TestRuntime {
 // will also need to update this configuration to represent that.
 impl pallet_gatos::Config for TestRuntime {
 	type RuntimeEvent = RuntimeEvent;
+	type NativeBalance = PalletBalances;
 }
 
 // We need to run most of our tests using this function: `new_test_ext().execute_with(|| { ... });`
@@ -201,12 +202,12 @@ fn mint_stores_owner_in_kitty() {
 	})
 }
 #[test]
-fn create_gato_makes_unique_kitties() {
+fn create_gato_makes_unique_Gatos() {
 	new_test_ext().execute_with(|| {
 		// Two calls to `create_kitty` should work.
 		assert_ok!(PalletGatos::create_gatos(RuntimeOrigin::signed(ALICE)));
 		assert_ok!(PalletGatos::create_gatos(RuntimeOrigin::signed(BOB)));
-		// And should result in two kitties in our system.
+		// And should result in two Gatos in our system.
 		assert_eq!(CountForGatos::<TestRuntime>::get(), 2);
 		assert_eq!(Gatos::<TestRuntime>::iter().count(), 2);
 	})
@@ -214,12 +215,12 @@ fn create_gato_makes_unique_kitties() {
 #[test]
 fn gatos_owned_created_correctly() {
 	new_test_ext().execute_with(|| {
-		// Initially users have no kitties owned.
+		// Initially users have no Gatos owned.
 		assert_eq!(GatosOwned::<TestRuntime>::get(1).len(), 0);
-		// Let's create two kitties.
+		// Let's create two Gatos.
 		assert_ok!(PalletGatos::create_gatos(RuntimeOrigin::signed(ALICE)));
 		assert_ok!(PalletGatos::create_gatos(RuntimeOrigin::signed(ALICE)));
-		// Now they should have two kitties owned.
+		// Now they should have two Gatos owned.
 		assert_eq!(GatosOwned::<TestRuntime>::get(1).len(), 2);
 	});
 }
@@ -286,4 +287,111 @@ fn transfer_logic_works() {
 		let gato = &Gatos::<TestRuntime>::iter_values().collect::<Vec<_>>()[0];
 		assert_eq!(gato.owner, BOB);
 	});
+}
+#[test]
+fn native_balance_associated_type_works() {
+	new_test_ext().execute_with(|| {
+		assert_ok!(<<TestRuntime as Config>::NativeBalance as Mutate<_>>::mint_into(&ALICE, 1337));
+		assert_eq!(
+			<<TestRuntime as Config>::NativeBalance as Inspect<_>>::total_balance(&ALICE),
+			1337
+		);
+	});
+}
+#[test]
+fn balance_of_type_works() {
+	// Inside our tests, the `BalanceOf` type has a concrete type of `u64`.
+	let _example_balance: BalanceOf<TestRuntime> = 1337u64;
+}
+#[test]
+fn set_price_emits_event() {
+	new_test_ext().execute_with(|| {
+		// We need to set block number to 1 to view events.
+		System::set_block_number(1);
+		assert_ok!(PalletGatos::create_gatos(RuntimeOrigin::signed(ALICE)));
+		let gato_id = Gatos::<TestRuntime>::iter_keys().collect::<Vec<_>>()[0];
+		assert_ok!(PalletGatos::set_price(RuntimeOrigin::signed(ALICE), gato_id, Some(1337)));
+		// Assert the last event is `PriceSet` event with the correct information.
+		System::assert_last_event(
+			Event::<TestRuntime>::PriceSet { owner: ALICE, gato_id, new_price: Some(1337) }.into(),
+		);
+	})
+}
+#[test]
+fn set_price_logic_works() {
+	new_test_ext().execute_with(|| {
+		assert_ok!(PalletGatos::create_gatos(RuntimeOrigin::signed(ALICE)));
+		let gato = &Gatos::<TestRuntime>::iter_values().collect::<Vec<_>>()[0];
+		assert_eq!(gato.price, None);
+		let gato_id = gato.dna;
+		assert_ok!(PalletGatos::set_price(RuntimeOrigin::signed(ALICE), gato_id, Some(1337)));
+		let gato = Gatos::<TestRuntime>::get(gato_id).unwrap();
+		assert_eq!(gato.price, Some(1337));
+	})
+}
+#[test]
+fn do_buy_kitty_emits_event() {
+	new_test_ext().execute_with(|| {
+		// We need to set block number to 1 to view events.
+		System::set_block_number(1);
+		assert_ok!(PalletGatos::create_gatos(RuntimeOrigin::signed(ALICE)));
+		let gato_id = Gatos::<TestRuntime>::iter_keys().collect::<Vec<_>>()[0];
+		assert_ok!(PalletGatos::set_price(RuntimeOrigin::signed(ALICE), gato_id, Some(1337)));
+		assert_ok!(PalletBalances::mint_into(&BOB, 100_000));
+		assert_ok!(PalletGatos::buy_gato(RuntimeOrigin::signed(BOB), gato_id, 1337));
+		// Assert the last event by our blockchain is the `Created` event with the correct owner.
+		System::assert_last_event(
+			Event::<TestRuntime>::Sold { buyer: BOB, gato_id, price: 1337 }.into(),
+		);
+	})
+}
+
+#[test]
+fn do_buy_kitty_logic_works() {
+	new_test_ext().execute_with(|| {
+		assert_ok!(PalletGatos::create_gatos(RuntimeOrigin::signed(ALICE)));
+		let gato = &Gatos::<TestRuntime>::iter_values().collect::<Vec<_>>()[0];
+		let gato_id = gato.dna;
+		assert_eq!(gato.owner, ALICE);
+		assert_eq!(GatosOwned::<TestRuntime>::get(ALICE), vec![gato_id]);
+		// Cannot buy gato which does not exist.
+		assert_noop!(
+			PalletGatos::buy_gato(RuntimeOrigin::signed(BOB), [0u8; 32], 1337),
+			Error::<TestRuntime>::NoGato
+		);
+		// Cannot buy kitty which is not for sale.
+		assert_noop!(
+			PalletGatos::buy_gato(RuntimeOrigin::signed(BOB), gato_id, 1337),
+			Error::<TestRuntime>::GatoNotForSale
+		);
+		assert_ok!(PalletGatos::set_price(RuntimeOrigin::signed(ALICE), gato_id, Some(1337)));
+		// Cannot buy kitty for a lower price.
+		assert_noop!(
+			PalletGatos::buy_gato(RuntimeOrigin::signed(BOB), gato_id, 1336),
+			Error::<TestRuntime>::MaxPriceTooLow
+		);
+		// Cannot buy kitty if you don't have the funds.
+		assert_noop!(
+			PalletGatos::buy_gato(RuntimeOrigin::signed(BOB), gato_id, 1337),
+			frame::arithmetic::ArithmeticError::Underflow
+		);
+		// Cannot buy kitty if it would kill your account (i.e. set your balance to 0).
+		assert_ok!(PalletBalances::mint_into(&BOB, 1337));
+		assert!(
+			PalletGatos::buy_gato(RuntimeOrigin::signed(BOB), gato_id, 1337).is_err(),
+			// TODO: assert_noop on DispatchError::Token(TokenError::NotExpendable)
+		);
+		// When everything is right, it works.
+		assert_ok!(PalletBalances::mint_into(&BOB, 100_000));
+		assert_ok!(PalletGatos::buy_gato(RuntimeOrigin::signed(BOB), gato_id, 1337));
+		// State is updated correctly.
+		assert_eq!(GatosOwned::<TestRuntime>::get(BOB), vec![gato_id]);
+		let gato = Gatos::<TestRuntime>::get(gato_id).unwrap();
+		assert_eq!(gato.owner, BOB);
+		// Price is reset to `None`.
+		assert_eq!(gato.price, None);
+		// BOB transferred funds to ALICE.
+		assert_eq!(PalletBalances::balance(&ALICE), 1337);
+		assert_eq!(PalletBalances::balance(&BOB), 100_000);
+	})
 }

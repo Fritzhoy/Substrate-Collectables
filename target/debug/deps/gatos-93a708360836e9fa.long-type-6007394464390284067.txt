@@ -1,0 +1,1 @@
+fn(<T as frame_system::Config>::AccountId, [u8; 32], std::option::Option<<<T as pallet::Config>::NativeBalance as polkadot_sdk_frame::traits::fungible::Inspect<<T as frame_system::Config>::AccountId>>::Balance>) -> Result<(), polkadot_sdk_frame::prelude::DispatchError> {impls::<impl pallet::Pallet<T>>::do_set_price}
